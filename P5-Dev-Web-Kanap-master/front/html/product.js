@@ -71,7 +71,7 @@ let productInLocalStorage =  JSON.parse(localStorage.getItem('product'));
     localStorage.setItem('product', JSON.stringify(productInLocalStorage));
     }
 
-    /**  je crée une boîte de dialogue pour confirmer l'ajout au panier */
+    /**  je crée une boîte de dialogue pour confirmer l'ajout au panier + Controle sur le nombre d'article !!!!! */
     let addConfirm = () => {
       alert('Le produit a bien été ajouté au panier');
     }

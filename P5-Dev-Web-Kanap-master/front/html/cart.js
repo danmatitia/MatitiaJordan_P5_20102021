@@ -242,6 +242,7 @@ fetch("http://localhost:3000/api/products/order", options)
         document.location.href = 'confirmation.html?id='+ data.orderId;
         }
     });
-    }) /**  fin eventListener + envoi formulaire postForm */
-}
+    }) 
+    }/**  fin eventListener + envoi formulaire postForm */
+};
 postForm();
