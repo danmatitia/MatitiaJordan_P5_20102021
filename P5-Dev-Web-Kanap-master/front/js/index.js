@@ -17,7 +17,7 @@ fetch('http://localhost:3000/api/products')
    function showProducts(data) {
      /** pour ma variable product de ma promise .then data */
      for (product of data) {
-         // trouver l'élément #items dans index.html...
+         /**  trouver l'élément #items dans index.html...*/
          const itemCard = document.getElementById('items');
 
          itemCard.innerHTML +=`

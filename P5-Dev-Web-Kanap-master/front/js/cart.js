@@ -58,6 +58,7 @@ for (let j = 0; j < itemQtt.length; j++) {
     event.preventDefault();
     /** sélection de la nouvelle quantité qu'on va sauvegarder dans un nouveau tableau avec les autres éléments du localStorage */
     let itemNewQtt = itemQtt[j].value;
+    
     const newLocalStorage = {
     id: productInLocalStorage[j].id,
     image: productInLocalStorage[j].image,
@@ -92,7 +93,7 @@ function deleteArticle() {
       deleteItem[k].addEventListener('click', (event) => {
       event.preventDefault();
   
-      /** enregistrer l'id et la couleur séléctionnés par le bouton supprimer */
+      /** enregistrer l'id et la couleur séléctionnés avec le bouton supprimer */
       let deleteId = productInLocalStorage[k].id;
       let deleteColor = productInLocalStorage[k].color;
   
@@ -115,7 +116,7 @@ function deleteArticle() {
     let totalItems = 0;
     for (l in productInLocalStorage) {
       /** analyser et convertir la valeur 'quantité' dans le localstorage en une chaîne */
-      /** et renvoie un entier (parseInteger), sur la base décimale de 10 */
+      /** et renvoie un entier (parseInt), sur la base décimale de 10 */
       const newQuantity = parseInt(productInLocalStorage[l].quantity, 10);
   
       /** Relier  la valeur retournée par parseInt à la variable totalItems */
@@ -243,6 +244,6 @@ fetch("http://localhost:3000/api/products/order", options)
         }
     });
     }) 
-    }/**  fin eventListener + envoi formulaire postForm */
+    }/** envoi formulaire postForm */
 };
 postForm();

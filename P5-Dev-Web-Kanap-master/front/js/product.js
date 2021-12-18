@@ -12,14 +12,14 @@ function idVerification (){
 
 /** nouvelle URL indiqué par id, pour passer l’id d’une page à une autre */
 
-/** variables deescriptive des prouits */
+/** variables descriptive des prouits */
 const image = document.getElementsByClassName('item__img');
 const title = document.getElementById('title');
 const price = document.getElementById('price');
 const description = document.getElementById('description');
 const colors = document.getElementById('colors');
 
-let imageURL = "";
+let imageURL = "";  
 let imageAlt = "";
 
 /** Nouvelle URl pour chaque produits */
@@ -54,11 +54,13 @@ const selectColors = document.getElementById('colors');
 /** variable ajout panier */
 const addToCart = document.getElementById('addToCart');
 addToCart.addEventListener('click', (event) => {
-  if (selectQuantity.value > 0 && selectQuantity.value <=100 && selectQuantity.value != 0){ /** commande annulant la possibilité de validé l'article à 0 */
-  event.preventDefault();
+  if ((selectColors.value == 0) || (selectQuantity.value <= 0 || selectQuantity.value > 100)){
+    alert (' veuillez renseigner les champs correctement ');
+  }
+  if (selectQuantity.value > 0 && selectQuantity.value <=100 && selectColors.value != 0){ /** commande annulant la possibilité de validé l'article à 0 */
 
   const selection = {
-    id: newID,
+    id: newID, 
     image: imageURL,
     alt: imageAlt,
     name: title.textContent,
