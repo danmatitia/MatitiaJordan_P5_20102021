@@ -4,12 +4,11 @@ fetch('http://localhost:3000/api/products')
   .then(res => res.json())
     /** deuxième promesse .then qui va afficher les données contenues dans ma fonction showProducts  */
   .then(data => {
-    data.forEach( d => {
-      showProduct(d);
-    }
-    ) 
+      showProducts(data);
+      console.log(data)
   })
   /**  Message au cas où le serveur ne répond pas */
+
 
   .catch(_error => {
      let element = document.getElementById(`items`);
@@ -17,19 +16,20 @@ fetch('http://localhost:3000/api/products')
    });
 
    /** Fonction permettant d'afficher les produits dans la page d'accueil */
-   function showProduct(data) {
+   function showProducts(data) {
      /** pour ma variable product de ma promise .then data */
-         /**  trouver l'élément #items dans index.html...*/
+     for (product of data) {    
+     /**  trouver l'élément #items dans index.html...*/
          const itemCard = document.getElementById('items');
 
          itemCard.innerHTML +=`
-         <a href="./product.html?id=${data._id}">
+         <a href="./product.html?id=${product._id}">
          <article>
-           <img src="${data.imageUrl}" alt="${data.altTxt}">
-           <h3 class="productName">${data.name}</h3>
-           <p class="productDescription">${data.description}</p>
+           <img src="${product.imageUrl}" alt="${product.altTxt}">
+           <h3 class="productName">${product.name}</h3>
+           <p class="productDescription">${product.description}</p>
          </article>
          </a>
-       `;
+       `};
  }
             
